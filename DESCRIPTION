@@ -21,6 +21,7 @@ Imports:
     janitor,
     leaflet,
     lubridate,
+    markdown,
     reactable,
     sf,
     shiny (>= 1.8.0),
