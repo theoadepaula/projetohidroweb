@@ -3,7 +3,7 @@
 #' @description A shiny Module.
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
-#' @importFrom shiny renderLeaflet renderReactable leafletOutput reactableOutput
+#' @importFrom shiny renderLeaflet renderReactable
 #' @importFrom leaflet leaflet addTiles addCircleMarkers leafletOutput
 #' @importFrom reactable reactable reactableOutput
 #' @importFrom echarts4r echarts4rOutput
@@ -25,9 +25,9 @@ mod_mapas_bacias_ui <- function(id,bacia){
 }
 
 #' mapas_bacias Server Functions
-#' @importFrom shiny
-#' @importFrom leaflet leaflet addTiles addCircleMarkers renderReactable addPolylines
-#' @importFrom reactable reactable renderLeaflet coldDef colFormat
+#' @importFrom shiny moduleServer
+#' @importFrom leaflet leaflet addTiles addCircleMarkers  addPolylines renderLeaflet
+#' @importFrom reactable reactable colDef colFormat renderReactable
 #' @importFrom sf read_sf st_transform st_crs
 #' @importFrom dplyr case_when filter mutate select across
 #' @importFrom lubridate ymd_hms
