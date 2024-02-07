@@ -1,0 +1,31 @@
+Package: projetohidroweb
+Title: An Amazing Shiny App
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "firstname",
+           family = "lastname",
+           role = c("aut", "cre"),
+           email = "your@email.com")
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Imports: 
+    config (>= 0.3.2),
+    dplyr,
+    echarts4r,
+    geobr,
+    glue,
+    golem (>= 0.4.1),
+    httr,
+    janitor,
+    leaflet,
+    lubridate,
+    pkgload,
+    reactable,
+    shiny (>= 1.8.0),
+    tibble,
+    XML
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 2.10)

@@ -1,0 +1,46 @@
+## code to prepare `mapa_bacia_estacoes` dataset goes here
+
+mapa_hidro <- sf::read_sf('data/macro_RH/macro_RH.shp')
+mapa_rio <- sf::read_sf('data/GEOFT_BHO_REF_RIO/GEOFT_BHO_REF_RIO.shp')
+load('data/estacoes_fluviometricas.rda')
+
+estacoes_flu_mapa <- estacoes_fluviometricas |>
+  st_as_sf(coords = c("longitude","latitude"))
+
+mapa_hidro <- st_transform(mapa_hidro, crs = st_crs("+proj=longlat +datum=WGS84"))
+mapa_rio <- st_transform(mapa_rio, crs = st_crs("+proj=longlat +datum=WGS84"))
+st_crs(estacoes_flu_mapa) <- st_crs("+proj=longlat +datum=WGS84")
+
+mapa_rio_reduzido <- mapa_rio |>
+  mutate(
+    tamanho = sf::st_length(mapa_rio) |> as.numeric()
+  ) |>
+  filter(
+    tamanho>100000
+  )
+
+pegar_intersecao_estacoes <- function(x) {
+  st_filter(estacoes_flu_mapa,mapa_hidro |>
+              filter(fid==x))
+}
+
+safe_pegar_intersecao_estacoes <- safely(pegar_intersecao_estacoes,tibble())
+
+
+mapa_bacia_estacoes <-
+  map(1:12,
+      \(x){
+        safe_pegar_intersecao_estacoes(x)
+      },.progress = TRUE)
+
+mapa_bacia_estacoes <-
+  discard(mapa_bacia_estacoes,\(x) nrow(x$result)==0)
+
+mapa_bacia_estacoes <- map(mapa_bacia_estacoes,'result')
+
+mapa_bacia_estacoes <- purrr::map(mapa_bacia_estacoes,\(x){
+  x |>
+    dplyr::filter(codigo %in% codigos_nivel)
+})
+
+usethis::use_data(mapa_bacia_estacoes, overwrite = TRUE)

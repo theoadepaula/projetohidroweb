@@ -1,0 +1,13 @@
+name: projetohidroweb
+title: projetohidroweb
+username: ospedagogicos
+account: ospedagogicos
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11154254
+bundleId:
+url: https://theodepaula.shinyapps.io/projetohidroweb/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: data-raw
