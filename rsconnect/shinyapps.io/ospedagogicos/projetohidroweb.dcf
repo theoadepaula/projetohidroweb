@@ -5,7 +5,7 @@ account: ospedagogicos
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 11154254
-bundleId:
+bundleId: 8230696
 url: https://theodepaula.shinyapps.io/projetohidroweb/
 version: 1
 asMultiple: FALSE
