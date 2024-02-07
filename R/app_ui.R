@@ -2,7 +2,7 @@
 #'
 #' @param request Internal parameter for `{shiny}`.
 #'     DO NOT REMOVE.
-#' @importFrom shiny fluidPage titlePanel leafletOutput reactableOutput
+#' @importFrom shiny fluidPage titlePanel
 #' @importFrom leaflet leaflet addTiles addCircleMarkers
 #' @importFrom reactable reactable
 #' @noRd

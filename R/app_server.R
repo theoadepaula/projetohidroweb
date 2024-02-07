@@ -2,7 +2,7 @@
 #'
 #' @param input,output,session Internal parameters for {shiny}.
 #'     DO NOT REMOVE.
-#' @importFrom shiny renderLeaflet renderReactable leafletOutput reactableOutput
+#' @importFrom shiny NS
 #' @importFrom leaflet leaflet addTiles addCircleMarkers
 #' @importFrom reactable reactable
 #' @noRd

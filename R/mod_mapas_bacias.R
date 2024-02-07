@@ -3,7 +3,7 @@
 #' @description A shiny Module.
 #'
 #' @param id,input,output,session Internal parameters for {shiny}.
-#' @importFrom shiny renderLeaflet renderReactable
+#' @importFrom shiny NS tagList
 #' @importFrom leaflet leaflet addTiles addCircleMarkers leafletOutput
 #' @importFrom reactable reactable reactableOutput
 #' @importFrom echarts4r echarts4rOutput
@@ -11,16 +11,16 @@
 #'
 #' @importFrom shiny NS tagList
 mod_mapas_bacias_ui <- function(id,bacia){
-  ns <- NS(id)
-  tagList(
-      h2(bacia),
-      h3('Mapa'),
-      leaflet::leafletOutput(ns("mapa")),
-      h3('Tabela'),
-      reactable::reactableOutput(ns("tabela")),
-      h3('Gráfico'),
-      echarts4r::echarts4rOutput(ns("grafico"))
-    )
+  ns <- shiny::NS(id)
+  shiny::tagList(
+    shiny::h2(bacia),
+    shiny::h3('Mapa'),
+    leaflet::leafletOutput(ns("mapa")),
+    shiny::h3('Tabela'),
+    reactable::reactableOutput(ns("tabela")),
+    shiny::h3('Gráfico'),
+    echarts4r::echarts4rOutput(ns("grafico"))
+  )
 
 }
 
