@@ -6,6 +6,8 @@
 #' @importFrom leaflet leaflet addTiles addCircleMarkers
 #' @importFrom reactable reactable
 #' @noRd
+#'
+library(markdown)
 app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources

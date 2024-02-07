@@ -8,6 +8,8 @@
 #'
 #' @importFrom shiny NS tagList
 #' @importFrom htmltools includeMarkdown
+#'
+library(markdown)
 mod_pagina_inicial_ui <- function(id){
   ns <- NS(id)
   tagList(
